@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { BingCopilotChat } from '../connectors/bingChat';
 import { PerplexityAI } from '../connectors/perplexityAI';
+import { YouChat } from '../connectors/youChat';
 
 test('Bing Copilot Chat', async ({ page }) => {
   await page.goto('https://www.bing.com/chat');
@@ -20,3 +21,12 @@ test('Perplexity AI', async ({ page }) => {
   expect(result!.length).toBeGreaterThan(0);
 });
 
+test('YouChat', async ({ page }) => {
+  await page.goto('https://you.com/');
+  // todo fetch prompts from spreadsheet and iterate
+  const result = await YouChat('Playwright', page);
+  // todo track results somewhere
+  expect(result).toBeDefined();
+  expect(result!.length).toBeGreaterThan(0);
+}
+);
