@@ -12,7 +12,7 @@ export async function HuggingChat(prompt: string, page: Page){
     const searchbox = await page.waitForSelector('textarea[placeholder="Ask anything"]');
     
     // type query
-    await searchbox?.type('Playwright');
+    await searchbox?.type(prompt);
     // press enter
     await searchbox?.press('Enter');
     // wait 1 sec for ll to load

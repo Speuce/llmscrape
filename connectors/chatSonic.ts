@@ -34,7 +34,7 @@ export async function ChatSonic(prompt: string, page: Page){
     // find button with disabled=""
     const disabledButton = await page.$('button[disabled=""]');
     // type query
-    await searchbox?.type('Playwright');
+    await searchbox?.type(prompt);
     // press enter
     await searchbox?.press('Enter');
     //check for 'dismiss' button and click if it exists

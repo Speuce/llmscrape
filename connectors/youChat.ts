@@ -4,7 +4,7 @@ export async function YouChat(prompt: string, page: Page){
     // find searchbox with id searchbox
     const searchbox = await page.waitForSelector('#search-input-textarea');
     // type query
-    await searchbox?.type('Playwright');
+    await searchbox?.type(prompt);
     // press enter
     await searchbox?.press('Enter');
     // wait 1 sec for ll to load

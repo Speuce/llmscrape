@@ -38,7 +38,7 @@ export async function GeminiChat(prompt: string, page: Page){
     // find searchbox with type rich-textarea
     const searchbox = await page.$('rich-textarea');
     // type query
-    await searchbox?.type('Playwright');
+    await searchbox?.type(prompt);
     // press enter
     await searchbox?.press('Enter');
     // wait 1 sec for ll to load
