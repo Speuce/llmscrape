@@ -7,6 +7,7 @@ import { GeminiChat } from '../connectors/geminiCHat';
 import { beforeEach } from 'node:test';
 import path from 'path';
 import fs from 'fs';
+import { ChatSonic } from '../connectors/chatSonic';
 
 const cookiesPath = path.resolve(__dirname, '../cookies.json')
 test.beforeEach(async ({ page }) => {
@@ -65,3 +66,12 @@ test('Gemini Chat', async ({ page }) => {
   expect(result!.length).toBeGreaterThan(0);
 }
 );
+
+test('ChatSonic', async ({ page }) => {
+  await page.goto('https://app.writesonic.com/template/a2f586b5-1eba-4178-9217-f8e0efefec6c/chatsonic/2a3445dd-9114-4314-bd61-930f6adcba04?l_h=undefined');
+  // todo fetch prompts from spreadsheet and iterate
+  const result = await ChatSonic('Playwright', page);
+  // todo track results somewhere
+  expect(result).toBeDefined();
+  expect(result!.length).toBeGreaterThan(0);
+});
